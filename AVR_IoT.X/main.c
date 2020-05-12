@@ -33,6 +33,9 @@ SOFTWARE.
 #include "mcc_generated_files/sensors_handling.h"
 #include "mcc_generated_files/cloud/cloud_service.h"
 #include "mcc_generated_files/debug_print.h"
+#include "mcc_generated_files/EXAMPLE_ThumbStick.h"
+#include "mcc_generated_files/ThumbStick_driver.h"
+#include "mcc_generated_files/ThumbStick_presentation.h"
 
 //This handles messages published from the MQTT server when subscribed
 void receivedFromCloud(uint8_t *topic, uint8_t *payload)
@@ -58,7 +61,7 @@ void sendToCloud(void)
    // This part runs every CFG_SEND_INTERVAL seconds
    int rawTemperature = SENSORS_getTempValue();
    int light = SENSORS_getLightValue();
-   int len = sprintf(json, "{\"Light\":%d,\"Temp\":\"%d.%02d\"}", light,rawTemperature/100,abs(rawTemperature)%100);
+   int len = sprintf(json, "{\"Light\":%d,\"Temp\":\"%d.%02d\",\"X axis position\":\"%d\",\"Y axis position\":\"%d\"}", light,rawTemperature/100,abs(rawTemperature)%100, ThumbStick_MCP3402ReadChannel(SINGLE_ENDED, HORIZONTAL), ThumbStick_MCP3402ReadChannel(SINGLE_ENDED, VERTICAL));
 
    if (len >0) {
       CLOUD_publishData((uint8_t*)json, len);
