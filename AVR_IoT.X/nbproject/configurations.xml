@@ -102,6 +102,7 @@
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.h</itemPath>
           <itemPath>mcc_generated_files/drivers/timeout.h</itemPath>
+          <itemPath>mcc_generated_files/drivers/spi_master.h</itemPath>
         </logicalFolder>
         <logicalFolder name="examples" displayName="examples" projectFiles="true">
           <itemPath>mcc_generated_files/examples/twi0_master_example.h</itemPath>
@@ -213,6 +214,10 @@
         <itemPath>mcc_generated_files/debug_print.h</itemPath>
         <itemPath>mcc_generated_files/led.h</itemPath>
         <itemPath>mcc_generated_files/banner.h</itemPath>
+        <itemPath>mcc_generated_files/delay.h</itemPath>
+        <itemPath>mcc_generated_files/ThumbStick_presentation.h</itemPath>
+        <itemPath>mcc_generated_files/ThumbStick_driver.h</itemPath>
+        <itemPath>mcc_generated_files/EXAMPLE_ThumbStick.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -326,6 +331,7 @@
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.c</itemPath>
           <itemPath>mcc_generated_files/drivers/timeout.c</itemPath>
+          <itemPath>mcc_generated_files/drivers/spi_master.c</itemPath>
         </logicalFolder>
         <logicalFolder name="examples" displayName="examples" projectFiles="true">
           <itemPath>mcc_generated_files/examples/twi0_master_example.c</itemPath>
@@ -406,6 +412,9 @@
         <itemPath>mcc_generated_files/device_config.c</itemPath>
         <itemPath>mcc_generated_files/led.c</itemPath>
         <itemPath>mcc_generated_files/debug_print.c</itemPath>
+        <itemPath>mcc_generated_files/delay.c</itemPath>
+        <itemPath>mcc_generated_files/EXAMPLE_ThumbStick.c</itemPath>
+        <itemPath>mcc_generated_files/ThumbStick_driver.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
