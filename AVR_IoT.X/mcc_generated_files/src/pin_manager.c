@@ -22,7 +22,6 @@
 */
 
 #include "../include/pin_manager.h"
-#include "../include/port.h"
 
 void PORT_Initialize(void);
 
@@ -33,7 +32,7 @@ void PIN_MANAGER_Initialize()
     /* DIR Registers Initialization */
     PORTA.DIR = 0xDE;
     PORTB.DIR = 0x00;
-    PORTC.DIR = 0x00;
+    PORTC.DIR = 0x08;
     PORTD.DIR = 0x0F;
     PORTE.DIR = 0x00;
     PORTF.DIR = 0x01;

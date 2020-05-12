@@ -24,6 +24,7 @@
 #define PINS_H_INCLUDED
 
 #include <avr/io.h>
+#include "port.h"
 
 //get/set PD5 aliases
 #define PD5_SetHigh() do { PORTD_OUTSET = 0x20; } while(0)
@@ -97,6 +98,24 @@
 #define SW0_DisableDigitalInputBuffer() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define SW0_EnableInterruptForLowLevelSensing() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+//get/set ThumbStick_nCS aliases
+#define ThumbStick_nCS_SetHigh() do { PORTC_OUTSET = 0x8; } while(0)
+#define ThumbStick_nCS_SetLow() do { PORTC_OUTCLR = 0x8; } while(0)
+#define ThumbStick_nCS_Toggle() do { PORTC_OUTTGL = 0x8; } while(0)
+#define ThumbStick_nCS_GetValue() (VPORTC.IN & (0x1 << 3))
+#define ThumbStick_nCS_SetDigitalInput() do { PORTC_DIRCLR = 0x8; } while(0)
+#define ThumbStick_nCS_SetDigitalOutput() do { PORTC_DIRSET = 0x8; } while(0)
+#define ThumbStick_nCS_SetPullUp() do { PORTC_PIN3CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define ThumbStick_nCS_ResetPullUp() do { PORTC_PIN3CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define ThumbStick_nCS_SetInverted() do { PORTC_PIN3CTRL  |= PORT_INVEN_bm; } while(0)
+#define ThumbStick_nCS_ResetInverted() do { PORTC_PIN3CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define ThumbStick_nCS_DisableInterruptOnChange() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define ThumbStick_nCS_EnableInterruptForBothEdges() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define ThumbStick_nCS_EnableInterruptForRisingEdge() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define ThumbStick_nCS_EnableInterruptForFallingEdge() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define ThumbStick_nCS_DisableDigitalInputBuffer() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define ThumbStick_nCS_EnableInterruptForLowLevelSensing() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
 //get/set PA4 aliases
 #define PA4_SetHigh() do { PORTA_OUTSET = 0x10; } while(0)
 #define PA4_SetLow() do { PORTA_OUTCLR = 0x10; } while(0)
@@ -132,6 +151,24 @@
 #define PA3_EnableInterruptForFallingEdge() do { PORTA.PIN3CTRL = (PORTA.PIN3CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
 #define PA3_DisableDigitalInputBuffer() do { PORTA.PIN3CTRL = (PORTA.PIN3CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define PA3_EnableInterruptForLowLevelSensing() do { PORTA.PIN3CTRL = (PORTA.PIN3CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
+//get/set ThumbStick_StickPress aliases
+#define ThumbStick_StickPress_SetHigh() do { PORTD_OUTSET = 0x40; } while(0)
+#define ThumbStick_StickPress_SetLow() do { PORTD_OUTCLR = 0x40; } while(0)
+#define ThumbStick_StickPress_Toggle() do { PORTD_OUTTGL = 0x40; } while(0)
+#define ThumbStick_StickPress_GetValue() (VPORTD.IN & (0x1 << 6))
+#define ThumbStick_StickPress_SetDigitalInput() do { PORTD_DIRCLR = 0x40; } while(0)
+#define ThumbStick_StickPress_SetDigitalOutput() do { PORTD_DIRSET = 0x40; } while(0)
+#define ThumbStick_StickPress_SetPullUp() do { PORTD_PIN6CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define ThumbStick_StickPress_ResetPullUp() do { PORTD_PIN6CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define ThumbStick_StickPress_SetInverted() do { PORTD_PIN6CTRL  |= PORT_INVEN_bm; } while(0)
+#define ThumbStick_StickPress_ResetInverted() do { PORTD_PIN6CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define ThumbStick_StickPress_DisableInterruptOnChange() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define ThumbStick_StickPress_EnableInterruptForBothEdges() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define ThumbStick_StickPress_EnableInterruptForRisingEdge() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define ThumbStick_StickPress_EnableInterruptForFallingEdge() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define ThumbStick_StickPress_DisableDigitalInputBuffer() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define ThumbStick_StickPress_EnableInterruptForLowLevelSensing() do { PORTD.PIN6CTRL = (PORTD.PIN6CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
 //get/set PA6 aliases
 #define PA6_SetHigh() do { PORTA_OUTSET = 0x40; } while(0)
