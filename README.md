@@ -4,10 +4,6 @@
 Devices: \| **ATmega4808(MCU)** \| **WINC1510(Wi-Fi®)** \| **ECC608(CryptoAuthLib)** \|
 
 ---
-
-![Board](images/boardGoogle.png)
-
----
 ## Software Requirements
    + MPLAB X v5.20 or later
    + XC8 Compiler v2.10 or later
