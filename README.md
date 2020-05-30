@@ -31,7 +31,7 @@ Devices: \| **ATmega4808(MCU)** \| **WINC1510(Wi-Fi®)** \| **ECC608(CryptoAuthL
    1. The application publishes data on the ``/devices/deviceID/events `` topic to the Google Cloud
    2. The following payload is sent in JSON format:
       * payload:  
-     ``{"Light":lightValue,"Temp":temperatureValue, "X axis position": xaxisposition, "Y axis position": yaxisposition} ``
+     ``{"Light":lightValue,"Temp":temperatureValue, "X axis position":xaxisposition, "Y axis position":yaxisposition} ``
   3. The C code for sending MQTT publish packets is available in AVRIoT.X/mcc_generated_files/main.c file.
      + The API ``static void sendToCloud(void)`` is responsible for publishing data at an interval of 1 second. 
   4. The yellow LED on the board is toggled every time a MQTT publish packet is sent successfully to the CLoud.
